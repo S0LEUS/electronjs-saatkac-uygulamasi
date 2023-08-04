@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="clock.ico" type="image/x-icon">
+    <title>Saat Kaç?</title>
+</head>
+<body>
+    
+    <div class="main">
+        
+        <div class="saat">
+            <h1>SAATİNİZ</h1>
+            <p id="saat">00:00:00</p>
+        </div>
+        <p id="copyright">Saat Kaç Website © 2023 - Tüm Hakları Saklıdır.</p>
+    </div>
+
+
+</body>
+</html>
+
+<!--CSS-->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=REM:wght@500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=REM:wght@500&display=swap');
+
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .main{
+        width:  100vw;
+        height: 100vh;
+        background-image: url("saatkacweb.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+
+    .main .saat h1{
+        font-family: 'REM', sans-serif;
+        padding-top: 20%;
+        padding-left: 41%;
+        font-size: 300%;
+        cursor: default;
+        letter-spacing: 5px;
+    }
+
+    #saat{
+        font-family: 'Libre Baskerville', serif;
+        font-size: 300%;
+        padding-left: 43%;
+        padding-top: 2%;
+        cursor: default;
+    }
+
+    #copyright{
+        padding-top: 16%;
+        text-align: center;
+        font-weight: 500;
+        font-family: 'Ubuntu', sans-serif;
+        cursor: default;
+    }
+
+</style>
+
+<!--JAVASCRIPT-->
+
+<script>
+
+    document.onselectstart = () => {
+    event.preventDefault();
+    }
+
+    setInterval(function() {
+        var tarih = new Date();
+        var saat=tarih.getHours();
+        var dakika=tarih.getMinutes();
+        var saniye=tarih.getSeconds();
+
+        var dakikaMetni = dakika < 10 ? "0" + dakika : dakika;
+        var saniyeMetni = saniye < 10 ? "0" + saniye : saniye;
+        var saatMetni = saat < 10 ? "0" + saat : saat;
+        var newText = saatMetni+":"+dakikaMetni+":"+saniyeMetni;
+
+
+      document.getElementById('saat').textContent = newText;
+    }, 1000);
+
+</script>
