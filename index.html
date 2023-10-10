@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="clock.ico" type="image/x-icon">
     <title>Saat Kaç?</title>
 </head>
+
 <body>
-    
+
     <div class="main">
-        
+
         <div class="saat">
-            <h1>SAATİNİZ</h1>
-            <p id="saat">00:00:00</p>
+            <center>
+                <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 324.048 324.048" xml:space="preserve">
+                    <g>
+                        <path d="M162.024,0C72.684,0,0,72.684,0,162.024s72.684,162.024,162.024,162.024c89.341,0,162.024-72.684,162.024-162.024
+		S251.365,0,162.024,0z M177.409,287.108v-19.285c0-6.617-5.383-12-12-12h-9c-6.617,0-12,5.383-12,12v18.988
+		c-56.688-7.964-101.39-53.778-107.65-110.988h16.65c6.617,0,12-5.383,12-12v-9c0-6.617-5.383-12-12-12H37.46
+		c8.393-54.674,52.055-97.874,106.948-105.586v14.586c0,6.617,5.383,12,12,12h9c6.617,0,12-5.383,12-12V36.94
+		c55.939,6.839,100.672,50.47,109.179,105.883h-17.179c-6.617,0-12,5.383-12,12v9c0,6.617,5.383,12,12,12h17.881
+		C280.948,233.782,235.152,280.048,177.409,287.108z" />
+                        <path d="M239.014,199.427l-47.094-32.15c0.382-1.931,0.587-3.926,0.587-5.968c0-13.58-8.859-25.122-21.099-29.171V94.823
+		c0-8.284-6.716-15-15-15s-15,6.716-15,15v43.518c-6.341,5.632-10.347,13.839-10.347,22.967c0,16.941,13.782,30.723,30.723,30.723
+		c3.682,0,7.213-0.652,10.487-1.845l49.827,34.017c2.587,1.767,5.53,2.613,8.443,2.613c4.79,0,9.497-2.29,12.402-6.544
+		C247.616,213.431,245.856,204.098,239.014,199.427z" />
+                    </g>
+                </svg>
+
+                <h1>SAATİNİZ</h1>
+                <p id="saat">00:00:00</p>
+            </center>
         </div>
-        <p id="copyright">BFL.</p>
+
     </div>
 
 
+
+
 </body>
+
 </html>
 
 <!--CSS-->
@@ -28,42 +52,55 @@
     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=REM:wght@500&display=swap');
 
 
-    *{
+    * {
         margin: 0;
         padding: 0;
     }
 
-    .main{
-        width:  100vw;
+    .main {
         height: 100vh;
-        background-image: url("saatkacweb.png");
         background-size: 100%;
-        background-repeat: no-repeat;
+        background-image: url("saatkacweb.png");
+        background-repeat: repeat;
     }
 
-    .main .saat h1{
+    .main .saat {
+        background-color: transparent;
+        position: relative;
+        top: 13%;
+    }
+
+    .main .saat h1 {
         font-family: 'REM', sans-serif;
-        padding-top: 20%;
-        padding-left: 41%;
         font-size: 300%;
         cursor: default;
+        width: auto;
         letter-spacing: 5px;
+        background-color: transparent;
+
     }
 
-    #saat{
+    #saat {
         font-family: 'Libre Baskerville', serif;
         font-size: 300%;
-        padding-left: 43%;
-        padding-top: 2%;
         cursor: default;
+        background-color: transparent;
+        margin-top: 5px;
     }
 
-    #copyright{
+    #copyright {
         padding-top: 16%;
         text-align: center;
         font-weight: 500;
         font-family: 'Ubuntu', sans-serif;
         cursor: default;
+    }
+
+    svg{
+        width: 13em;
+        height: auto;
+        background-color: transparent;
+        margin-bottom: 20px;
     }
 
 </style>
@@ -73,22 +110,22 @@
 <script>
 
     document.onselectstart = () => {
-    event.preventDefault();
+        event.preventDefault();
     }
 
-    setInterval(function() {
+    setInterval(function () {
         var tarih = new Date();
-        var saat=tarih.getHours();
-        var dakika=tarih.getMinutes();
-        var saniye=tarih.getSeconds();
+        var saat = tarih.getHours();
+        var dakika = tarih.getMinutes();
+        var saniye = tarih.getSeconds();
 
         var dakikaMetni = dakika < 10 ? "0" + dakika : dakika;
         var saniyeMetni = saniye < 10 ? "0" + saniye : saniye;
         var saatMetni = saat < 10 ? "0" + saat : saat;
-        var newText = saatMetni+":"+dakikaMetni+":"+saniyeMetni;
+        var newText = saatMetni + ":" + dakikaMetni + ":" + saniyeMetni;
 
 
-      document.getElementById('saat').textContent = newText;
+        document.getElementById('saat').textContent = newText;
     }, 1000);
 
 </script>
